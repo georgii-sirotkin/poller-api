@@ -28,4 +28,12 @@ class LoginController extends Controller
     {
         return ['message' => 'success'];
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function loggedOut(Request $request)
+    {
+        return ['message' => 'success'];
+    }
 }
