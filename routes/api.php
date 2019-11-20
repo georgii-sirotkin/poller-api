@@ -6,6 +6,8 @@ Route::middleware('web')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::get('auth/me', 'Auth\GetCurrentUserController');
         Route::get('auth/logout', 'Auth\LoginController@logout');
+
+        Route::post('polls', 'CreatePollController');
     });
 });
 
