@@ -40,7 +40,8 @@ class CreateResponseController extends Controller
     protected function createAnswer($answerData, Question $question, Response $response)
     {
         $specializedAnswer = $this->createSpecializedAnswer($answerData, $question);
-        $answer = new Answer();
+        $answer = new Answer([]);
+        $answer->question()->associate($question);
         $answer->specializedAnswer()->associate($specializedAnswer);
         $response->answers()->save($answer);
     }

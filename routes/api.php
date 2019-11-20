@@ -10,6 +10,8 @@ Route::middleware('web')->group(function () {
         Route::get('auth/logout', 'Auth\LoginController@logout');
 
         Route::post('admin/polls', 'CreatePollController');
+        Route::get('admin/polls', 'PollsController@index');
+        Route::get('admin/polls/{id}', 'PollsController@show');
     });
 
 });
