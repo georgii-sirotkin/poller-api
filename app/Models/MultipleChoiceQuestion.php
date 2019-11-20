@@ -8,6 +8,8 @@ class MultipleChoiceQuestion extends Model
 {
     protected $guarded = [];
 
+    protected $with = ['answerOptions'];
+
     public function generalQuestion()
     {
         return $this->morphOne(Question::class, 'specialized_question');
