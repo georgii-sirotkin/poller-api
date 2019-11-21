@@ -8,7 +8,7 @@ class PollsController extends Controller
 {
     public function index()
     {
-        return Poll::withCount('responses')->get();
+        return Poll::withCount('responses')->orderBy('created_at')->get();
     }
 
     public function show($id)

@@ -17,6 +17,18 @@ class MultipleChoiceAnswer extends Model
 
     public function getTextAttribute()
     {
-        return $this->selectedAnswerOptions->pluck('text')->join(', ');
+        $optionValues = [];
+
+        foreach ($this->selectedAnswerOptions as $selectedOption) {
+            if ($selectedOption->is_other) {
+                $optionValue = $selectedOption->text . ': ' . $this->other;
+            } else {
+                $optionValue = $selectedOption->text;
+            }
+
+            $optionValues[] = $optionValue;
+        }
+
+        return implode(', ', $optionValues);
     }
 }
